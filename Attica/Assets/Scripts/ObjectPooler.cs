@@ -17,9 +17,49 @@ public class ObjectPooler : MonoBehaviour
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> pooldictionary;
 
+    public static ObjectPooler Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         pooldictionary = new Dictionary<string, Queue<GameObject>>();
+
+        foreach (Pool pool in pools)
+        {
+            Queue<GameObject> objectPool = new Queue<GameObject>();
+
+            for (int i = 0; i < pool.size; i++)
+            {
+                GameObject obj = Instantiate(pool.prefab);
+                obj.SetActive(false);
+                objectPool.Enqueue(obj);
+
+                pooldictionary.Add(pool.tag, objectPool);
+            }
+        }
+    }
+
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
+    {
+        if (!pooldictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("Pool with Tag " + " doesn't exist");
+            return null;
+        }
+
+        GameObject objectToSpawn = pooldictionary[tag].Dequeue();
+
+        objectToSpawn.SetActive(true);
+        objectToSpawn.transform.position = position;
+        objectToSpawn.transform.rotation = rotation;
+
+        pooldictionary[tag].Enqueue(objectToSpawn);
+
+        return objectToSpawn;
     }
 
     // Update is called once per frame
