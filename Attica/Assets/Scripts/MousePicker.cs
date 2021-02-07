@@ -85,7 +85,7 @@ public class MousePicker : MonoBehaviour
     {
         Tile selectedTileScript = selectedTile.GetComponent<Tile>();
         selectedTile.GetComponent<SpriteRenderer>().enabled = true;
-        if (selectedTileScript.GetOccupied()
+        if ((selectedTileScript != null && selectedTileScript.GetOccupied())
         || (offensiveObjectSelected && selectedTileScript.GetTileType() is Tile.TileType.Sand)
         || (defensiveObjectSelected && selectedTileScript.GetTileType() is Tile.TileType.Water))
         {

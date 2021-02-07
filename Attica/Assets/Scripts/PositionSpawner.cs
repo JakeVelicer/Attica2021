@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class PositionSpawner : MonoBehaviour
 {
-    public void SpawnAndPositionObject(GameObject objectToSpawn, Tile selectedTile, bool offensive)
+    public void SpawnAndPositionObject(GameObject objectToSpawn, Tile givenTile, bool offensive)
     {
+        Tile selectedTile = givenTile;
         if (offensive == true)
         {
             OffenseUnit objectUnitScript = objectToSpawn.GetComponent<OffenseUnit>();
-            GameObject newObject = ObjectPooler.Instance.SpawnFromPool("Wave", selectedTile.transform.position, Quaternion.identity);
-            objectToSpawn.GetComponent<MonoBehaviour>().StartCoroutine(PathMovement.Move(objectToSpawn.transform, Direction.Up, selectedTile.distance, objectUnitScript.moveSpeed));            
+
+            GameObject newObject = ObjectPooler.Instance.SpawnFromPool(objectToSpawn.name, selectedTile.OceanStart.position, Quaternion.identity);
+
+            newObject.GetComponent<MonoBehaviour>().StartCoroutine(PathMovement.Move
+            (newObject.transform, Direction.Up, selectedTile.distance - 1, objectUnitScript.moveSpeed));
         }
         else
         {
             BaseUnit objectUnitScript = objectToSpawn.GetComponent<BaseUnit>();
-            //selectedTile.transform.position;
+            GameObject newObject = ObjectPooler.Instance.SpawnFromPool(objectToSpawn.name, selectedTile.transform.position, Quaternion.identity);
         }
+        selectedTile.SetOccupied(true);
 
     }
 }

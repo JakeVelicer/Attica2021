@@ -10,7 +10,9 @@ public class Tile : MonoBehaviour
         Water
     }
 
+    public int column;
     public int distance;
+    public Transform OceanStart;
 
     [SerializeField] private TileType tileType;
     private bool isOccupied;

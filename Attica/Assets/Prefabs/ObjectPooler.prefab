@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4804484784703637502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4804484784703637496}
+  - component: {fileID: 4804484784703637503}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4804484784703637496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804484784703637502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 513.407, y: 238.55263, z: -51.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4804484784703637503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804484784703637502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe79c64f34f7474cad03b174abd327a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Wave
+    prefab: {fileID: 5336088404130539207, guid: f3e146405cfdc194a8d830d2b46dde85, type: 3}
+    numberOfObjects: 200
+  - tag: WallSmall
+    prefab: {fileID: 7242985730745353870, guid: 9c515d12605543e4b8a67dda64a37921, type: 3}
+    numberOfObjects: 40
+  - tag: WallMedium
+    prefab: {fileID: 3431329445666110786, guid: 0ef9ce0ed0e40274c9c464eb74f95995, type: 3}
+    numberOfObjects: 40
+  - tag: WallLarge
+    prefab: {fileID: 6410435089444575992, guid: 44ac9ff477aa022448a6445f05a636c4, type: 3}
+    numberOfObjects: 40
+  - tag: BoatSmall
+    prefab: {fileID: 2949872006789182221, guid: de326f8cfcfd42f4b8c6d29df2344998, type: 3}
+    numberOfObjects: 40
+  - tag: BoatMedium
+    prefab: {fileID: 6975811779131344800, guid: 73c324a04384e2844b047459c5e5f4e2, type: 3}
+    numberOfObjects: 40
+  - tag: BoatLarge
+    prefab: {fileID: 5190616591781763283, guid: 5b1bc3d639e950147a49fe760914141e, type: 3}
+    numberOfObjects: 40
