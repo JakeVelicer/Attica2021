@@ -40,6 +40,8 @@ public class OffenseUnit : BaseUnit
                     enemy.TakeDamage(damage);
                 }
             }
+
+            currentTimer = 0f;
         }
 
 

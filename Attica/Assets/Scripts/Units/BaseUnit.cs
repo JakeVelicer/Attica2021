@@ -16,7 +16,7 @@ public class BaseUnit : MonoBehaviour, iUnit
     public bool hasAttack = false;
     public float buildSpeed;
     public int cost;
-    public int health;
+    public float health;
 
     public virtual void Action()
     {
@@ -49,7 +49,7 @@ public class BaseUnit : MonoBehaviour, iUnit
         return cost;
     }
 
-    public int GetHealth()
+    public float GetHealth()
     {
         return health;
     }
@@ -67,5 +67,21 @@ public class BaseUnit : MonoBehaviour, iUnit
     public void SetHealth(int newHealth)
     {
         health = newHealth;
+    }
+
+    public void takeDamage(float damageToTake)
+    {
+        health -= damageToTake;
+
+        if (health <= 0)
+        {
+            DestroySelf();
+        }
+
+    }
+
+    public void DestroySelf()
+    {
+        gameObject.SetActive(false);
     }
 }

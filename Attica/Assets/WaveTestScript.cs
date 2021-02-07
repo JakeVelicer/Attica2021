@@ -5,6 +5,7 @@ using UnityEngine;
 public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
 {
     public float health;
+    public float damage;
 
     public void Attack()
     {
@@ -41,6 +42,28 @@ public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
     {
         health -= damageToTake;
 
+        if (health <= 0)
+        {
+            GetDestroyed();
+        }
+
         Debug.Log("Wave Took Damage!");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Unit")
+        {
+            iUnit unit = collision.gameObject.GetComponent<iUnit>();
+
+            unit.takeDamage(damage);
+            Debug.Log("Boat Took Damage");
+
+            GetDestroyed();
+
+
+
+        }
+
     }
 }
