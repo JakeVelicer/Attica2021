@@ -6,6 +6,7 @@ public class PosedionScript : MonoBehaviour
 {
     public float moveSpeed;
     public float attackRate;
+    public float healthRemaining = 10f;
 
     public float moveRate;
     private float moveTimer = 0f;
@@ -39,7 +40,7 @@ public class PosedionScript : MonoBehaviour
 
         if (moveTimer > 10.0f)
         {
-            Debug.Log("The Big P is moving");
+
             moveTimer = 0f;
             movementBehaviour.Move(gameObject.transform, moveSpeed * 100);
         }
@@ -98,5 +99,25 @@ public class PosedionScript : MonoBehaviour
     public void SetMidMove(bool newMidMove)
     {
         midMove = newMidMove;
+    }
+
+    public void TakeDamage(float damageToTake)
+    {
+        healthRemaining -= damageToTake;
+
+        Debug.Log("Posideon Took Damage!");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Unit")
+        {
+            iUnit unit = collision.gameObject.GetComponent<iUnit>();
+
+            unit.takeDamage(999);
+            Debug.Log("Boat Took Damage");
+
+            
+        }
     }
 }

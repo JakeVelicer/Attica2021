@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6975811779131344830}
   - component: {fileID: 6975811779131344831}
   - component: {fileID: -8270375206787039434}
+  - component: {fileID: -4792358642153686774}
   m_Layer: 0
   m_Name: MediumBoat
   m_TagString: Untagged
@@ -95,10 +96,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5a442289c21fd40b012bcac84cf838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasAttack: 0
-  buildSpeed: 0
-  cost: 0
-  health: 0
   unitType: 0
-  attackSpeed: 0
-  moveSpeed: 0
+  hasAttack: 0
+  buildSpeed: 4
+  cost: 6
+  health: 5
+  damage: 6
+  attackSpeed: 8
+  moveSpeed: 6
+  range: 10
+--- !u!58 &-4792358642153686774
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975811779131344800}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public interface iUnit 
 {
-    int GetHealth();
+    float GetHealth();
 
     void SetHealth(int newHealth);
+
+    void takeDamage(float damageToTake);
+
+    void DestroySelf();
 
     bool canAttack();
 
