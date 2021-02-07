@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveTestScript : MonoBehaviour
+public class WaveTestScript : MonoBehaviour, iPoolerObject
 {
-    private void Start()
+    public void OnSpawnedByPool()
     {
+        StopAllCoroutines();
         StartCoroutine(PathMovement.Move(gameObject.transform, Direction.Down, 9, 2.0f));
     }
 }

@@ -5,12 +5,15 @@ using UnityEngine;
 public class PosedionScript : MonoBehaviour
 {
     public float moveSpeed;
+    public float attackRate;
 
     public float moveRate;
-    private float currentTimer = 0f;
+    private float moveTimer = 0f;
+    private float attackTimer = 0f;
 
     private int xPos = 3;
     private int yPos = 7;
+    private bool midMove = false;
 
     private iPAttack attackBehaviour;
 
@@ -20,26 +23,35 @@ public class PosedionScript : MonoBehaviour
     {
         //movementBehaviour = new StrafeBehaviour();
         //movementBehaviour.Move(gameObject.transform, moveSpeed);
+
+        attackBehaviour = new CreateWaveBehaviour();
     }
 
     private void Start()
     {
-        StartCoroutine(stateMachine());
+        StartCoroutine(movementStateMachine());
     }
 
     void Update()
     {
-        currentTimer += Time.deltaTime * moveRate;
+        moveTimer += Time.deltaTime * moveRate;
+        attackTimer += Time.deltaTime * attackRate;
 
-        if (currentTimer > 10.0f)
+        if (moveTimer > 10.0f)
         {
             Debug.Log("The Big P is moving");
-            currentTimer = 0f;
+            moveTimer = 0f;
             movementBehaviour.Move(gameObject.transform, moveSpeed * 100);
+        }
+
+        if (attackTimer > 10f && !midMove)
+        {
+            attackBehaviour.Attack(gameObject.transform);
+            attackTimer = 0f;
         }
     }
 
-    IEnumerator stateMachine()
+    IEnumerator movementStateMachine()
     {
         while (true)
         {
@@ -81,5 +93,10 @@ public class PosedionScript : MonoBehaviour
     public void SetYPos(int newPos)
     {
         yPos = newPos;
+    }
+
+    public void SetMidMove(bool newMidMove)
+    {
+        midMove = newMidMove;
     }
 }

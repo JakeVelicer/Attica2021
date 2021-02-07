@@ -8,7 +8,9 @@ public class ClickOnTileTest : MonoBehaviour
 
     private WorldTile _tile;
 
-    public Transform target;
+    
+
+    //public Transform target;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +24,11 @@ public class ClickOnTileTest : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.transform.position = new Vector3(mousePos.x, mousePos.y, 0);
+            //target.transform.position = new Vector3(mousePos.x, mousePos.y, 0);
 
             var worldPoint = new Vector3Int(Mathf.FloorToInt(mousePos.x), Mathf.FloorToInt(mousePos.y), 0);
+
+           // target.transform.position = worldPoint;
 
             var tiles = GameTiles.instance.tiles;
 

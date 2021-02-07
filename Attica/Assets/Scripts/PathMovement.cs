@@ -54,13 +54,28 @@ public static class PathMovement
         float waitTime = givenSpeed / 0.5f;
         
         float elapsedTime = 0;
+
+        PosedionScript posideon = entity.gameObject.GetComponent<PosedionScript>();
+
+        if (posideon != null)
+        {
+            posideon.SetMidMove(true);
+        }
         
         while (elapsedTime < waitTime)
         {
             entity.position = Vector3.Lerp(startPosition, endPosition, (elapsedTime / waitTime));
             elapsedTime += Time.deltaTime;
             yield return null;
-        }  
+        }
+
+        if (posideon != null)
+        {
+            posideon.SetMidMove(false);
+        }
+        
+
+
 
         // Make sure we got there
         entity.position = endPosition;
