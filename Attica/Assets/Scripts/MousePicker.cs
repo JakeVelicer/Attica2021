@@ -11,6 +11,15 @@ public class MousePicker : MonoBehaviour
 
     private void Update()
     {
+        RaycastSelecting();
+        if (selectedTile != null)
+        {
+            MouseAction();
+        }
+    }
+
+    private void RaycastSelecting()
+    {
         Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
         hit = Physics2D.Raycast(mousePosition, cam.transform.position - mousePosition , 0,001);
         if (hit == true && selectedTile == null)
@@ -33,6 +42,14 @@ public class MousePicker : MonoBehaviour
         else if (hit == false)
         {
             selectedTile = null;
+        }
+    }
+
+    private void MouseAction()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            
         }
     }
 }
