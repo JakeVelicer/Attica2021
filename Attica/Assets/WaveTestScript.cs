@@ -61,5 +61,10 @@ public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
 
             GetDestroyed();
         }
+        else if (collision.gameObject.tag == "City")
+        {
+            GameManager.instance.DamageCity(1);
+            GetDestroyed();
+        }
     }
 }

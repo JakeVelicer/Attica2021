@@ -28,7 +28,7 @@ public class OffenseUnit : BaseUnit
         {
             for (int i = 0; i < hitColliders.Length; i++)
             {
-                PosedionScript posedion = hitColliders[i].gameObject.GetComponent<PosedionScript>();
+                PosedionScript posedion = hitColliders[i].GetComponent<PosedionScript>();
                 iEnemy enemy = hitColliders[i].GetComponent<iEnemy>();
 
                 if (posedion != null)
