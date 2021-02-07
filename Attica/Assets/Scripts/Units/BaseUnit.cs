@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class BaseUnit : MonoBehaviour, iUnit
 {
+
+    public enum UnitType: int
+    {
+        Offensive,
+        Defensive
+    }
+
+    public UnitType unitType;
+
     public bool hasAttack = false;
     public float buildSpeed;
     public int cost;
@@ -18,6 +27,12 @@ public class BaseUnit : MonoBehaviour, iUnit
     {
         // code to build tower
     }
+
+    public UnitType GetUnitType()
+    {
+        return unitType;
+    }
+
 
     public bool canAttack()
     {

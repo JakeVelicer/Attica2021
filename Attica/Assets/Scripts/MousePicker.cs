@@ -8,6 +8,7 @@ public class MousePicker : MonoBehaviour
     private Ray2D ray;
     private RaycastHit2D hit;
     private GameObject selectedTile;
+    private bool selectedATile;
 
     private void Update()
     {
@@ -51,5 +52,10 @@ public class MousePicker : MonoBehaviour
         {
             
         }
+    }
+
+    public void PickObject(GameObject objectToBuild)
+    {
+        
     }
 }
