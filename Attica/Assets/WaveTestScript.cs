@@ -15,6 +15,7 @@ public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
 
     public void GetDestroyed()
     {
+        GameManager.instance.currency += GameManager.instance.stopWaveReward;
         gameObject.SetActive(false);
     }
 
