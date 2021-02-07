@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager instance;
+    public static GameManager instance;
 
-    int wave;
+    public int wave;
+    public int currency;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void StartGame()
     {
