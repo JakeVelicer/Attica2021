@@ -10,10 +10,23 @@ public class Tile : MonoBehaviour
         Water
     }
 
+    public int distance;
+
     [SerializeField] private TileType tileType;
+    private bool isOccupied;
 
     public TileType GetTileType()
     {
         return tileType;
+    }
+
+    public void SetOccupied(bool givenOccupy)
+    {
+        isOccupied = givenOccupy;
+    }
+
+    public bool GetOccupied()
+    {
+        return isOccupied;
     }
 }

@@ -7,6 +7,8 @@ public class MousePicker : MonoBehaviour
     public Camera cam;
     public Transform mouseFollow;
     public PositionSpawner positionSpawner;
+    public Material yellowOverlay;
+    public Material redOverlay;
     private Vector3 dragIconDefaultLocation = new Vector3(0, 0, 0);
     private Ray2D ray;
     private RaycastHit2D hit;
@@ -16,8 +18,9 @@ public class MousePicker : MonoBehaviour
     private Vector3 worldSpaceMousePosition;
     private bool hasObjectSelected;
     private bool defensiveObjectSelected;
-    private bool offensiceObjectSelected;
+    private bool offensiveObjectSelected;
     private GameManager gm;
+    private bool canPlace;
 
     private void Start()
     {
@@ -42,30 +45,64 @@ public class MousePicker : MonoBehaviour
         if (hit == true && selectedTile == null)
         {
             selectedTile = hit.transform.gameObject;
-            selectedTile.GetComponent<SpriteRenderer>().enabled = true;
+            if (hasObjectSelected)
+            {
+                SetTileAppearance();
+            }
+            else
+            {
+                selectedTile.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
         else if(hit == true && hit.transform.gameObject != selectedTile && selectedTile != null)
         {
             selectedTile.GetComponent<SpriteRenderer>().enabled = false;
             selectedTile = null;
             selectedTile = hit.transform.gameObject;
-            selectedTile.GetComponent<SpriteRenderer>().enabled = true;
+            if (hasObjectSelected)
+            {
+                SetTileAppearance();
+            }
+            else
+            {
+                selectedTile.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
         else if (hit == false && selectedTile != null)
         {
             selectedTile.GetComponent<SpriteRenderer>().enabled = false;
             selectedTile = null;
+            canPlace = false;
         }
         else if (hit == false)
         {
             selectedTile = null;
+            canPlace = false;
+        }
+    }
+
+    private void SetTileAppearance()
+    {
+        Tile selectedTileScript = selectedTile.GetComponent<Tile>();
+        selectedTile.GetComponent<SpriteRenderer>().enabled = true;
+        if (selectedTileScript.GetOccupied()
+        || (offensiveObjectSelected && selectedTileScript.GetTileType() is Tile.TileType.Sand)
+        || (defensiveObjectSelected && selectedTileScript.GetTileType() is Tile.TileType.Water))
+        {
+            selectedTile.GetComponent<SpriteRenderer>().material = redOverlay;
+            canPlace = false;
+        }
+        else
+        {
+            selectedTile.GetComponent<SpriteRenderer>().material = yellowOverlay;
+            canPlace = true;
         }
     }
 
     private void MouseAction()
     {
         mouseFollow.position = Input.mousePosition;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canPlace)
         {
             PlaceObject();
         }
@@ -81,7 +118,7 @@ public class MousePicker : MonoBehaviour
 
             if (objectToBuildUnit.GetUnitType() is BaseUnit.UnitType.Offensive)
             {
-                offensiceObjectSelected = true;
+                offensiveObjectSelected = true;
             }
             else if (objectToBuildUnit.GetUnitType() is BaseUnit.UnitType.Defensive)
             {
@@ -106,7 +143,14 @@ public class MousePicker : MonoBehaviour
     public void PlaceObject()
     {
         BaseUnit objectToBuildUnit = selectedObject.GetComponent<BaseUnit>();
-        positionSpawner.SpawnAndPositionObject(selectedObject);
+        if (offensiveObjectSelected)
+        {
+            positionSpawner.SpawnAndPositionObject(selectedObject, selectedTile.GetComponent<Tile>(), true);
+        }
+        else
+        {
+            positionSpawner.SpawnAndPositionObject(selectedObject, selectedTile.GetComponent<Tile>(), false);
+        }
         ResetSelection(selectedObject, currentObjectIcon);
     }
 
@@ -125,7 +169,7 @@ public class MousePicker : MonoBehaviour
 
         mouseFollow.position = dragIconDefaultLocation;
 
-        offensiceObjectSelected = false;
+        offensiveObjectSelected = false;
         defensiveObjectSelected = false;
 
         selectedObject = null;

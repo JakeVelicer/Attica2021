@@ -17,6 +17,7 @@ public class BaseUnit : MonoBehaviour, iUnit
     public float buildSpeed;
     public int cost;
     public float health;
+    private Tile tile;
 
     public virtual void Action()
     {
@@ -54,6 +55,11 @@ public class BaseUnit : MonoBehaviour, iUnit
         return health;
     }
 
+    public void SetTile(Tile givenTile)
+    {
+        tile = givenTile;
+    }
+
     public void SetBuildSpeed(float newBuildSpeed)
     {
         buildSpeed = newBuildSpeed;
@@ -82,6 +88,11 @@ public class BaseUnit : MonoBehaviour, iUnit
 
     public void DestroySelf()
     {
+        if (tile != null)
+        {
+            tile.SetOccupied(false);
+            tile = null;
+        }
         gameObject.SetActive(false);
     }
 }
