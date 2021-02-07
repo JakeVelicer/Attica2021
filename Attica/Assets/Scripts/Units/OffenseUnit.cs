@@ -2,20 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class OffenseUnit : BaseUnit
 {
+    public float damage;
     public float attackSpeed;
+    private float currentTimer = 0;
     public float moveSpeed;
+
+    public float range;
 
     public override void Action()
     {
-        Attack();
+        //Attack();
     }
     public void Attack()
     {
-        // this is the code to move the ship
+        //check if posideon or an enemy are in range
+        currentTimer += Time.deltaTime * attackSpeed;
+
+
+        var hitColliders = Physics2D.OverlapCircleAll(transform.position, range, 1 << LayerMask.NameToLayer("Enemy"));
+
+        if (currentTimer >= 1.0f)
+        {
+            for (int i = 0; i < hitColliders.Length; i++)
+            {
+                PosedionScript posedion = hitColliders[i].gameObject.GetComponent<PosedionScript>();
+                iEnemy enemy = hitColliders[i].GetComponent<iEnemy>();
+
+                if (posedion != null)
+                {
+                    posedion.TakeDamage(damage);
+                }
+                else if (enemy != null)
+                {
+                    
+                }
+            }
+        }
+
+
     }
 
+    void Update()
+    {
+        Attack();
+    }
+
+    
     public float GetAttackSpeed()
     {
         return attackSpeed;

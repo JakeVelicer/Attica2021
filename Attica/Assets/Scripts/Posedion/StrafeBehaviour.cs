@@ -9,7 +9,6 @@ public class StrafeBehaviour : iPMovement
     {
         //randomly choose left or right
 
-        Debug.Log("move script is being called");
 
         float randomNum = Random.Range(0f, 1f);
 
@@ -57,7 +56,6 @@ public class StrafeBehaviour : iPMovement
             targetToMove.gameObject.GetComponent<PosedionScript>().SetXPos(currentX + distance);
         }
 
-        Debug.Log("X: " + targetToMove.gameObject.GetComponent<PosedionScript>().GetXPos());
 
         
 

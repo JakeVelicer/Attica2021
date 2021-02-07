@@ -34,7 +34,7 @@ public class ObjectPooler : MonoBehaviour
 
             for (int i = 0; i < pool.numberOfObjects; i++)
             {
-                Debug.Log("Snog");
+
                 GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);

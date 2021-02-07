@@ -95,10 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5a442289c21fd40b012bcac84cf838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasAttack: 0
-  buildSpeed: 0
-  cost: 0
-  health: 0
   unitType: 0
-  attackSpeed: 0
-  moveSpeed: 0
+  hasAttack: 0
+  buildSpeed: 9
+  cost: 8
+  health: 20
+  damage: 9
+  attackSpeed: 7
+  moveSpeed: 9
+  range: 10
