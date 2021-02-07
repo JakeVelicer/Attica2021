@@ -36,7 +36,7 @@ public class PosedionScript : MonoBehaviour
         xPos = 3;
         yPos = 7;
         midMove = false;
-        healthRemaining = 10f;
+        healthRemaining = 100f;
 
         transform.position = originalPosition;
 
@@ -138,19 +138,17 @@ public class PosedionScript : MonoBehaviour
 
             unit.takeDamage(999);
             Debug.Log("Boat Took Damage");
-
-
         }
     }
 
 
     private void AttackFaster()
     {
-        attackRate += 0.5f;
+        attackRate += 0.1f;
     }
 
     private void GetMoreAggresive()
     {
-        moveRate += 0.5f;
+        moveRate += 0.1f;
     }
 }

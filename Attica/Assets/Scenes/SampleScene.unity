@@ -2215,7 +2215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 40
   attackRate: 2
-  healthRemaining: 10
+  healthRemaining: 100
   moveRate: 1.5
 --- !u!212 &1509558989
 SpriteRenderer:
