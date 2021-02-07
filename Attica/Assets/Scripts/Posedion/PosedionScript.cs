@@ -16,6 +16,8 @@ public class PosedionScript : MonoBehaviour
     private int yPos = 7;
     private bool midMove = false;
 
+    private Vector2 originalPosition;
+
     private iPAttack attackBehaviour;
 
     private iPMovement movementBehaviour = new StrafeBehaviour();
@@ -26,6 +28,15 @@ public class PosedionScript : MonoBehaviour
         //movementBehaviour.Move(gameObject.transform, moveSpeed);
 
         attackBehaviour = new CreateWaveBehaviour();
+        originalPosition = transform.position;
+    }
+
+    private void ResetPosideon()
+    {
+        xPos = 3;
+        yPos = 7;
+
+        transform.position = originalPosition;
     }
 
     private void Start()
@@ -104,6 +115,12 @@ public class PosedionScript : MonoBehaviour
     public void TakeDamage(float damageToTake)
     {
         healthRemaining -= damageToTake;
+
+        if (healthRemaining <= 0f)
+        {
+            ResetPosideon();
+            GameManager.instance.NextWave();
+        }
 
         Debug.Log("Posideon Took Damage!");
     }

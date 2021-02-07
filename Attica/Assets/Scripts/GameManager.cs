@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject loseScreen;
 
-    public int wave;
+    public int wave = 1;
     public int currency;
     public int health;
 
@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
 
     public void NextWave()
     {
+        wave++;
 
+        Debug.Log("Wave: " + wave.ToString());
     }
 
     public void LoseGame()
