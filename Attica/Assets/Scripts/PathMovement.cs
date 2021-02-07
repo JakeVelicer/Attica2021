@@ -65,4 +65,5 @@ public static class PathMovement
         // Make sure we got there
         entity.position = endPosition;
     }
+
 }
