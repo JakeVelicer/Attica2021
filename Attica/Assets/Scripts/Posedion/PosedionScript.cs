@@ -35,8 +35,12 @@ public class PosedionScript : MonoBehaviour
     {
         xPos = 3;
         yPos = 7;
+        midMove = false;
 
         transform.position = originalPosition;
+
+        AttackFaster();
+        GetMoreAggresive();
     }
 
     private void Start()
@@ -134,7 +138,18 @@ public class PosedionScript : MonoBehaviour
             unit.takeDamage(999);
             Debug.Log("Boat Took Damage");
 
-            
+
         }
+    }
+
+
+    private void AttackFaster()
+    {
+        attackRate += 0.5f;
+    }
+
+    private void GetMoreAggresive()
+    {
+        moveRate += 0.5f;
     }
 }
