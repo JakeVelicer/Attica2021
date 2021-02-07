@@ -6,8 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public GameObject loseScreen;
+
     public int wave;
     public int currency;
+    public int health;
 
     private void Awake()
     {
@@ -26,8 +29,23 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void EndGame()
+    public void NextWave()
     {
 
+    }
+
+    public void LoseGame()
+    {
+        loseScreen.SetActive(true);
+    }
+
+    public void DamageCity(int cityDamage)
+    {
+        health -= cityDamage;
+
+        if (health <= 0)
+        {
+            LoseGame();
+        }
     }
 }
