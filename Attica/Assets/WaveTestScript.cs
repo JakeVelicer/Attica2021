@@ -6,6 +6,7 @@ public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
 {
     public float health;
     public float damage;
+    public float waveSpeed = 1;
 
     public void Attack()
     {
@@ -30,7 +31,8 @@ public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
     public void OnSpawnedByPool()
     {
         StopAllCoroutines();
-        StartCoroutine(PathMovement.Move(gameObject.transform, Direction.Down, 9, 2.0f));
+        float randomSpeedOffset = Random.Range(-0.5f, 0.5f);
+        StartCoroutine(PathMovement.Move(gameObject.transform, Direction.Down, 9,  waveSpeed + randomSpeedOffset));
     }
 
     public void SetHealth(float newHealth)

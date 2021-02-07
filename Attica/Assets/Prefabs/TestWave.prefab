@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   damage: 1
+  waveSpeed: 12
 --- !u!50 &7809597456177164769
 Rigidbody2D:
   serializedVersion: 4
