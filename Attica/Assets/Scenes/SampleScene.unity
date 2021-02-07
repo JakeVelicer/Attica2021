@@ -2032,6 +2032,9 @@ MonoBehaviour:
   positionSpawner: {fileID: 383603730}
   yellowOverlay: {fileID: 2100000, guid: 045d98e3b4a071740a5d470747360828, type: 2}
   redOverlay: {fileID: 2100000, guid: 89a5b74e96b8ef640b9597bbbea52ea8, type: 2}
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &1366688064
 GameObject:
   m_ObjectHideFlags: 0

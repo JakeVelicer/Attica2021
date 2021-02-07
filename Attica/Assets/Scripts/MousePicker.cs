@@ -9,6 +9,8 @@ public class MousePicker : MonoBehaviour
     public PositionSpawner positionSpawner;
     public Material yellowOverlay;
     public Material redOverlay;
+    public LayerMask tileMask;
+
     private Vector3 dragIconDefaultLocation = new Vector3(0, 0, 0);
     private Ray2D ray;
     private RaycastHit2D hit;
@@ -25,7 +27,7 @@ public class MousePicker : MonoBehaviour
     private void Start()
     {
         gm = GameManager.instance;
-        Debug.Log(gm);
+        //tileMask = ~tileMask;
     }
 
     private void Update()
@@ -41,7 +43,7 @@ public class MousePicker : MonoBehaviour
     private void RaycastSelecting()
     {
         worldSpaceMousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        hit = Physics2D.Raycast(worldSpaceMousePosition, cam.transform.position - worldSpaceMousePosition , 0,001);
+        hit = Physics2D.Raycast(worldSpaceMousePosition, cam.transform.position - worldSpaceMousePosition, Mathf.Infinity, tileMask);
         if (hit == true && selectedTile == null)
         {
             selectedTile = hit.transform.gameObject;
@@ -85,6 +87,7 @@ public class MousePicker : MonoBehaviour
     {
         Tile selectedTileScript = selectedTile.GetComponent<Tile>();
         selectedTile.GetComponent<SpriteRenderer>().enabled = true;
+        Debug.Log(selectedTileScript);
         if ((selectedTileScript != null && selectedTileScript.GetOccupied())
         || (offensiveObjectSelected && selectedTileScript.GetTileType() is Tile.TileType.Sand)
         || (defensiveObjectSelected && selectedTileScript.GetTileType() is Tile.TileType.Water))
