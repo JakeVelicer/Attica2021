@@ -104,7 +104,7 @@ MonoBehaviour:
   damage: 6
   attackSpeed: 8
   moveSpeed: 6
-  range: 10
+  range: 0.5
 --- !u!58 &-4792358642153686774
 CircleCollider2D:
   m_ObjectHideFlags: 0
