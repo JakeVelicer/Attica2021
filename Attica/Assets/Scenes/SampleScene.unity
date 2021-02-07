@@ -3730,9 +3730,25 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7989478997662174285, guid: bb030cda87d7f3d43bfba8312972d219, type: 3}
+      propertyPath: currency
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989478997662174285, guid: bb030cda87d7f3d43bfba8312972d219, type: 3}
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 1836129202}
+    - target: {fileID: 7989478997662174285, guid: bb030cda87d7f3d43bfba8312972d219, type: 3}
+      propertyPath: stopWaveReward
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989478997662174285, guid: bb030cda87d7f3d43bfba8312972d219, type: 3}
+      propertyPath: hurtPoseidonReward
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989478997662174285, guid: bb030cda87d7f3d43bfba8312972d219, type: 3}
+      propertyPath: surviveRoundReward
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7989478997662174286, guid: bb030cda87d7f3d43bfba8312972d219, type: 3}
       propertyPath: m_Name
       value: GameManager

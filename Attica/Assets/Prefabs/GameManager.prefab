@@ -43,5 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a79455748c2a634fb7882b0a833255d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseScreen: {fileID: 0}
   wave: 0
-  currency: 100
+  currency: 10
+  health: 3
+  surviveRoundReward: 8
+  stopWaveReward: 2
+  hurtPoseidonReward: 10

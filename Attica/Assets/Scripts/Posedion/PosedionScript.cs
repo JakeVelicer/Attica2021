@@ -120,7 +120,7 @@ public class PosedionScript : MonoBehaviour
     public void TakeDamage(float damageToTake)
     {
         healthRemaining -= damageToTake;
-
+        GameManager.instance.currency += GameManager.instance.hurtPoseidonReward;
         if (healthRemaining <= 0f)
         {
             ResetPosideon();

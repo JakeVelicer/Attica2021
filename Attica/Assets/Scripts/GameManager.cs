@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public int wave = 1;
     public int currency;
     public int health;
+    public int surviveRoundReward;
+    public int stopWaveReward;
+    public int hurtPoseidonReward;
 
     private void Awake()
     {
@@ -32,7 +35,7 @@ public class GameManager : MonoBehaviour
     public void NextWave()
     {
         wave++;
-
+        currency += surviveRoundReward;
         Debug.Log("Wave: " + wave.ToString());
     }
 
