@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5336088404130539209}
   - component: {fileID: 5336088404130539208}
   - component: {fileID: 7809597456177164769}
-  - component: {fileID: 1666128781964203501}
+  - component: {fileID: 4052629252941315332}
   m_Layer: 9
   m_Name: TestWave
   m_TagString: Untagged
@@ -120,8 +120,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1666128781964203501
-CircleCollider2D:
+--- !u!60 &4052629252941315332
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,5 +134,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.19
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.098297596, y: 0.1963141}
+      - {x: -0.28162384, y: 0.007378131}
+      - {x: -0.019233942, y: -0.13592964}
+      - {x: 0.38914633, y: 0.05046913}

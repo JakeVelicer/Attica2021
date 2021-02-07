@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3431329445666110784}
   - component: {fileID: 3431329445666110787}
   - component: {fileID: -8245273307712870688}
+  - component: {fileID: 8533635888599427122}
   m_Layer: 0
   m_Name: WallMedium
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +98,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitType: 1
   hasAttack: 0
-  buildSpeed: 0
-  cost: 0
-  health: 0
+  buildSpeed: 34
+  cost: 5
+  health: 5
+--- !u!60 &8533635888599427122
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3431329445666110786}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.00044894218, y: 0.2519536}
+      - {x: -0.496507, y: 0.001622349}
+      - {x: 0.0018706918, y: -0.25296396}
+      - {x: 0.49466932, y: 0.0025041997}

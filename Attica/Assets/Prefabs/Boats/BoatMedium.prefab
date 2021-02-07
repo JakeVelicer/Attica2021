@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: -8270375206787039434}
   - component: {fileID: -4792358642153686774}
   m_Layer: 0
-  m_Name: MediumBoat
-  m_TagString: Untagged
+  m_Name: BoatMedium
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

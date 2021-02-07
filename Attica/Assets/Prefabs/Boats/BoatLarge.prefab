@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 201643772064270113}
   - component: {fileID: 2760716042513365318}
   m_Layer: 0
-  m_Name: BigBoat
-  m_TagString: Untagged
+  m_Name: BoatLarge
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
