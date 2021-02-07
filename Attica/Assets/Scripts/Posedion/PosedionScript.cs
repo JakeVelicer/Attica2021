@@ -36,6 +36,7 @@ public class PosedionScript : MonoBehaviour
         xPos = 3;
         yPos = 7;
         midMove = false;
+        healthRemaining = 10f;
 
         transform.position = originalPosition;
 
