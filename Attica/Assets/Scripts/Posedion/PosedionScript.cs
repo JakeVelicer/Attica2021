@@ -107,4 +107,17 @@ public class PosedionScript : MonoBehaviour
 
         Debug.Log("Posideon Took Damage!");
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Unit")
+        {
+            iUnit unit = collision.gameObject.GetComponent<iUnit>();
+
+            unit.takeDamage(999);
+            Debug.Log("Boat Took Damage");
+
+            
+        }
+    }
 }

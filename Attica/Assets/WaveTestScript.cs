@@ -60,10 +60,6 @@ public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
             Debug.Log("Boat Took Damage");
 
             GetDestroyed();
-
-
-
         }
-
     }
 }
