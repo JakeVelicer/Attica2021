@@ -37,7 +37,7 @@ public class OffenseUnit : BaseUnit
                 }
                 else if (enemy != null)
                 {
-                    
+                    enemy.TakeDamage(damage);
                 }
             }
         }
