@@ -34,15 +34,24 @@ public class OffenseUnit : BaseUnit
                 if (posedion != null)
                 {
                     posedion.TakeDamage(damage);
+                    AttackVisualization(posedion.gameObject.transform);
                 }
                 else if (enemy != null)
                 {
                     enemy.TakeDamage(damage);
+                    AttackVisualization(posedion.gameObject.transform);
                 }
             }
 
             currentTimer = 0f;
         }
+    }
+
+    void AttackVisualization(Transform target)
+    {
+        GameObject cannonBall = ObjectPooler.Instance.SpawnFromPool("Cannonball", transform.position, Quaternion.identity);
+
+        cannonBall.GetComponent<cannonBallVisualization>().SetTarget(target);
     }
 
     void Update()
