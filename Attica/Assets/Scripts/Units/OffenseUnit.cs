@@ -39,7 +39,7 @@ public class OffenseUnit : BaseUnit
                 else if (enemy != null)
                 {
                     enemy.TakeDamage(damage);
-                    AttackVisualization(posedion.gameObject.transform);
+                    AttackVisualization(hitColliders[i].transform);
                 }
             }
 
