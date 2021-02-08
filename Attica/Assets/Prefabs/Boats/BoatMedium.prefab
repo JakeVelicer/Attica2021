@@ -102,7 +102,7 @@ MonoBehaviour:
   cost: 6
   health: 5
   damage: 6
-  attackSpeed: 8
+  attackSpeed: 2
   moveSpeed: 6
   range: 0.5
 --- !u!58 &-4792358642153686774
