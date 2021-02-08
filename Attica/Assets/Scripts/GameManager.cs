@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject loseScreen;
     public TextMeshProUGUI currencyText;
+    public RectTransform poseidonHealthBar;
+    public Image[] cityHealthUI;
 
     public int wave = 1;
     public int currency;
@@ -16,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int surviveRoundReward;
     public int stopWaveReward;
     public int hurtPoseidonReward;
+
+    private PosedionScript posedion;
 
     private void Awake()
     {
@@ -27,11 +32,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        posedion = GameObject.FindObjectOfType<PosedionScript>();
     }
 
     private void Update()
     {
         currencyText.text = currency + " Drachma";
+        poseidonHealthBar.sizeDelta = new Vector2 ((5 * posedion.healthRemaining) - 500, 0);
     }
 
     public void NextWave()
@@ -49,6 +56,15 @@ public class GameManager : MonoBehaviour
     public void DamageCity(int cityDamage)
     {
         health -= cityDamage;
+
+        for (int i = cityHealthUI.Length; i > 0; i--)
+        {
+            if (cityHealthUI[i].enabled)
+            {
+                cityHealthUI[i].enabled = false;
+                break;
+            }
+        }
 
         if (health <= 0)
         {
