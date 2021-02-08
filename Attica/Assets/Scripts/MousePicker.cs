@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MousePicker : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class MousePicker : MonoBehaviour
     public Material yellowOverlay;
     public Material redOverlay;
     public LayerMask tileMask;
+    public GameObject[] objectIcons;
+    public Button cancelButton;
 
     private Vector3 dragIconDefaultLocation = new Vector3(0, 0, 0);
     private Ray2D ray;
@@ -32,7 +35,6 @@ public class MousePicker : MonoBehaviour
 
     private void Update()
     {
-
         RaycastSelecting();
         if (hasObjectSelected == true)
         {
@@ -118,6 +120,7 @@ public class MousePicker : MonoBehaviour
         {
             selectedObject = objectToBuild;
             GameManager.instance.currency -= objectToBuildUnit.GetCost();
+            PickObjectIcon();
 
             if (objectToBuildUnit.GetUnitType() is BaseUnit.UnitType.Offensive)
             {
@@ -127,6 +130,7 @@ public class MousePicker : MonoBehaviour
             {
                 defensiveObjectSelected = true;
             }
+            cancelButton.interactable = true;
             hasObjectSelected = true;
         }
         else
@@ -135,9 +139,16 @@ public class MousePicker : MonoBehaviour
         }
     }
 
-    public void PickObjectIcon(GameObject givenIcon)
+    public void PickObjectIcon()
     {
-        currentObjectIcon = givenIcon;
+        foreach (GameObject icon in objectIcons)
+        {
+            if (icon.name == "UI" + selectedObject.name)
+            {
+                currentObjectIcon = icon;
+                break;
+            }
+        }
         currentObjectIcon.SetActive(true);
         currentObjectIcon.transform.SetParent(mouseFollow);
         currentObjectIcon.transform.localPosition = dragIconDefaultLocation;
@@ -177,7 +188,8 @@ public class MousePicker : MonoBehaviour
 
         selectedObject = null;
         currentObjectIcon = null;
-
+        cancelButton.interactable = false;
+        
         hasObjectSelected = false;
     }
 }

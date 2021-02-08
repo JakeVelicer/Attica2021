@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     public GameObject loseScreen;
+    public TextMeshProUGUI currencyText;
 
     public int wave = 1;
     public int currency;
@@ -27,9 +29,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    private void Update()
     {
-
+        currencyText.text = currency + " Drachma";
     }
 
     public void NextWave()
