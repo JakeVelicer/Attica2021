@@ -11,9 +11,7 @@ public class MousePicker : MonoBehaviour
     public Material yellowOverlay;
     public Material redOverlay;
     public LayerMask tileMask;
-    public GameObject[] objectsToSpawn;
-    public GameObject[] objectIcons;
-    public Button[] buttons;
+    public BuildButtonLogic[] buildButtons;
 
     private Vector3 dragIconDefaultLocation = new Vector3(0, 0, 0);
     private Ray2D ray;
@@ -40,6 +38,19 @@ public class MousePicker : MonoBehaviour
         if (hasObjectSelected == true)
         {
             MouseAction();
+        }
+
+        foreach (BuildButtonLogic button in buildButtons)
+        {
+            if (button.GetBuildObjectScript().cost >= gm.currency)
+            {
+                Debug.Log(button.GetBuildObjectScript().cost);
+                button.buildButton.interactable = false;
+            }
+            else
+            {
+                button.buildButton.interactable = true;
+            }
         }
     }
 
@@ -112,20 +123,20 @@ public class MousePicker : MonoBehaviour
         {
             PlaceObject();
         }
-        if (Input.GetMouseButtonDown(1) && canPlace)
+        if (Input.GetMouseButtonDown(1) && hasObjectSelected)
         {
             PickObjectCancel();
         }
     }
 
-    public void PickObject(GameObject objectToBuild)
+    public void PickObject(GameObject objectToBuild, GameObject objectIcon)
     {
         BaseUnit objectToBuildUnit = objectToBuild.GetComponent<BaseUnit>();
         if (objectToBuildUnit.GetCost() <= gm.currency)
         {
             selectedObject = objectToBuild;
             GameManager.instance.currency -= objectToBuildUnit.GetCost();
-            PickObjectIcon();
+            PickObjectIcon(objectIcon);
 
             if (objectToBuildUnit.GetUnitType() is BaseUnit.UnitType.Offensive)
             {
@@ -143,16 +154,9 @@ public class MousePicker : MonoBehaviour
         }
     }
 
-    public void PickObjectIcon()
+    public void PickObjectIcon(GameObject icon)
     {
-        foreach (GameObject icon in objectIcons)
-        {
-            if (icon.name == "UI" + selectedObject.name)
-            {
-                currentObjectIcon = icon;
-                break;
-            }
-        }
+        currentObjectIcon = icon;
         currentObjectIcon.SetActive(true);
         currentObjectIcon.transform.SetParent(mouseFollow);
         currentObjectIcon.transform.localPosition = dragIconDefaultLocation;

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject loseScreen;
     public TextMeshProUGUI currencyText;
+    public TextMeshProUGUI waveText;
     public RectTransform poseidonHealthBar;
     public Image[] cityHealthUI;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         posedion = GameObject.FindObjectOfType<PosedionScript>();
+        waveText.text = "Wave: " + wave;
     }
 
     private void Update()
@@ -45,7 +47,8 @@ public class GameManager : MonoBehaviour
     {
         wave++;
         currency += surviveRoundReward;
-        Debug.Log("Wave: " + wave.ToString());
+        waveText.text = "Wave: " + wave;
+        //Debug.Log("Wave: " + wave.ToString());
     }
 
     public void LoseGame()
