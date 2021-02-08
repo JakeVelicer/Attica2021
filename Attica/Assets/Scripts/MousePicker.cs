@@ -44,7 +44,6 @@ public class MousePicker : MonoBehaviour
         {
             if (button.GetBuildObjectScript().cost >= gm.currency)
             {
-                Debug.Log(button.GetBuildObjectScript().cost);
                 button.buildButton.interactable = false;
             }
             else
