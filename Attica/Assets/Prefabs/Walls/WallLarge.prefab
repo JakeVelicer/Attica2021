@@ -182,8 +182,8 @@ MonoBehaviour:
   unitType: 1
   hasAttack: 0
   buildSpeed: 34
-  cost: 5
-  health: 5
+  cost: 12
+  health: 10
 --- !u!58 &-8262820328019949123
 CircleCollider2D:
   m_ObjectHideFlags: 0

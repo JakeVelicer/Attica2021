@@ -182,8 +182,8 @@ MonoBehaviour:
   unitType: 1
   hasAttack: 0
   buildSpeed: 34
-  cost: 5
-  health: 5
+  cost: 6
+  health: 6
 --- !u!60 &8533635888599427122
 PolygonCollider2D:
   m_ObjectHideFlags: 0

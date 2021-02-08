@@ -11,8 +11,9 @@ public class MousePicker : MonoBehaviour
     public Material yellowOverlay;
     public Material redOverlay;
     public LayerMask tileMask;
+    public GameObject[] objectsToSpawn;
     public GameObject[] objectIcons;
-    public Button cancelButton;
+    public Button[] buttons;
 
     private Vector3 dragIconDefaultLocation = new Vector3(0, 0, 0);
     private Ray2D ray;
@@ -111,6 +112,10 @@ public class MousePicker : MonoBehaviour
         {
             PlaceObject();
         }
+        if (Input.GetMouseButtonDown(1) && canPlace)
+        {
+            PickObjectCancel();
+        }
     }
 
     public void PickObject(GameObject objectToBuild)
@@ -130,7 +135,6 @@ public class MousePicker : MonoBehaviour
             {
                 defensiveObjectSelected = true;
             }
-            cancelButton.interactable = true;
             hasObjectSelected = true;
         }
         else
@@ -188,7 +192,6 @@ public class MousePicker : MonoBehaviour
 
         selectedObject = null;
         currentObjectIcon = null;
-        cancelButton.interactable = false;
         
         hasObjectSelected = false;
     }

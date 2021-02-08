@@ -65,3 +65,6 @@ MonoBehaviour:
   - tag: BoatLarge
     prefab: {fileID: 5190616591781763283, guid: 5b1bc3d639e950147a49fe760914141e, type: 3}
     numberOfObjects: 40
+  - tag: Cannonball
+    prefab: {fileID: 8016070667619646211, guid: 1192ddaaa09e75445b7ba429ecc770dd, type: 3}
+    numberOfObjects: 100

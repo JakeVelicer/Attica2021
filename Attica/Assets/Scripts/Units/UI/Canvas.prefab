@@ -120,6 +120,7 @@ MonoBehaviour:
   tileMask:
     serializedVersion: 2
     m_Bits: 1024
+  objectsToSpawn: []
   objectIcons:
   - {fileID: 5534739049120406541}
   - {fileID: 3901742271311366888}
@@ -127,7 +128,7 @@ MonoBehaviour:
   - {fileID: 7978429327226901174}
   - {fileID: 868037056525908810}
   - {fileID: 7016201184793644623}
-  cancelButton: {fileID: 6853675815550883264}
+  buttons: []
 --- !u!1001 &6853675816171808115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,14 +294,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4486614485306960700, guid: f6ffe9bd3300a124f9d04da059d3f036, type: 3}
   m_PrefabInstance: {fileID: 6853675816171808115}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6853675815550883264 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 721662131, guid: f6ffe9bd3300a124f9d04da059d3f036, type: 3}
-  m_PrefabInstance: {fileID: 6853675816171808115}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
