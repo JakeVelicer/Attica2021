@@ -43,8 +43,6 @@ public class OffenseUnit : BaseUnit
 
             currentTimer = 0f;
         }
-
-
     }
 
     void Update()
