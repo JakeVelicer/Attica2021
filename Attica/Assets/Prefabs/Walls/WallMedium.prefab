@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207028557625643223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.11, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: -0.024, y: 0.11, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0}
   m_Children: []
   m_Father: {fileID: 3431329445666110784}
   m_RootOrder: 0
@@ -92,8 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3431329445666110784}
   - component: {fileID: 3431329445666110787}
-  - component: {fileID: -8245273307712870688}
-  - component: {fileID: 8533635888599427122}
+  - component: {fileID: -3564559765288956620}
+  - component: {fileID: 7811599454086385211}
   m_Layer: 0
   m_Name: WallMedium
   m_TagString: Unit
@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3431329445666110786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.001, y: -0.224, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5187359293320333483}
   m_Father: {fileID: 0}
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8245273307712870688
+--- !u!114 &-3564559765288956620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3431329445666110786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8f5912693a5664c9ebe3f1bbf976e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 01a990848ccd8b74f954d2998938bfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1
@@ -184,8 +184,12 @@ MonoBehaviour:
   buildSpeed: 34
   cost: 6
   health: 6
---- !u!60 &8533635888599427122
-PolygonCollider2D:
+  spriteRenderer: {fileID: 6150705776298231098}
+  stages:
+  - {fileID: 21300000, guid: ffcd0e43e39b2e749b5ff9b92384ff2a, type: 3}
+  - {fileID: 21300000, guid: c2ee23bd5c900fd4e83bf728b3bb17f3, type: 3}
+--- !u!58 &7811599454086385211
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -194,22 +198,9 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.27, y: 1.77}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.00044894218, y: 0.2519536}
-      - {x: -0.496507, y: 0.001622349}
-      - {x: 0.0018706918, y: -0.25296396}
-      - {x: 0.49466932, y: 0.0025041997}
+  serializedVersion: 2
+  m_Radius: 0.12

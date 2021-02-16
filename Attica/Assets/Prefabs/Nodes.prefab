@@ -791,6 +791,14 @@ PrefabInstance:
       propertyPath: ColumnStart
       value: 
       objectReference: {fileID: 8712948372037619918}
+    - target: {fileID: 9170373443949845492, guid: 509d5b4eac3d212469c4e11d4af14a0f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0045011
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170373443949845492, guid: 509d5b4eac3d212469c4e11d4af14a0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0023
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 509d5b4eac3d212469c4e11d4af14a0f, type: 3}
 --- !u!4 &8712948372037619918 stripped

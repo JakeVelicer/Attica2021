@@ -60,7 +60,7 @@ public class WaveTestScript : MonoBehaviour, iPoolerObject, iEnemy
             iUnit unit = collision.gameObject.GetComponent<iUnit>();
 
             unit.takeDamage(damage);
-            Debug.Log("Boat Took Damage");
+            Debug.Log("Boat or Wall Took Damage");
 
             GetDestroyed();
         }

@@ -75,7 +75,7 @@ public class BaseUnit : MonoBehaviour, iUnit
         health = newHealth;
     }
 
-    public void takeDamage(float damageToTake)
+    public virtual void takeDamage(float damageToTake)
     {
         health -= damageToTake;
 

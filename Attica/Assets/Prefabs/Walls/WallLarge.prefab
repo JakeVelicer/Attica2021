@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3192322364666653837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.4}
+  m_LocalPosition: {x: -0.019, y: 0.137, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0}
   m_Children: []
   m_Father: {fileID: 6410435089444575994}
   m_RootOrder: 0
@@ -92,8 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6410435089444575994}
   - component: {fileID: 6410435089444575993}
-  - component: {fileID: -935275877867619250}
   - component: {fileID: -8262820328019949123}
+  - component: {fileID: -5133699115730443197}
   m_Layer: 0
   m_Name: WallLarge
   m_TagString: Unit
@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6410435089444575992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.001, y: -0.224, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4033464118129374114}
   m_Father: {fileID: 0}
@@ -123,7 +123,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6410435089444575992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -167,23 +167,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-935275877867619250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6410435089444575992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8f5912693a5664c9ebe3f1bbf976e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitType: 1
-  hasAttack: 0
-  buildSpeed: 34
-  cost: 12
-  health: 10
 --- !u!58 &-8262820328019949123
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -199,4 +182,26 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.12
+--- !u!114 &-5133699115730443197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410435089444575992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a990848ccd8b74f954d2998938bfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitType: 1
+  hasAttack: 0
+  buildSpeed: 34
+  cost: 12
+  health: 10
+  spriteRenderer: {fileID: 4302775732523880307}
+  stages:
+  - {fileID: 21300000, guid: f9c130409405e0640a6b8fde2dbc9f15, type: 3}
+  - {fileID: 21300000, guid: 4babef0360950964eb13f0c235deea84, type: 3}
+  - {fileID: 21300000, guid: 7083357d110a649458d1f3f3d9b8911b, type: 3}
